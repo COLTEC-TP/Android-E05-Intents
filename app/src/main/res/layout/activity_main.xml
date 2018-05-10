@@ -1,18 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#2B2B2E">
+
+    <ImageButton
+        android:layout_width="128dp"
+        android:layout_height="170dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/perfil_default"
+        android:id="@+id/img_perfil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/txt_perfil"
+        android:text="Willian"
+        android:textColor="#B4B3B5"
+        android:textSize="45dp"
+        android:fontFamily="casual"
+        android:layout_below="@+id/img_perfil"
+        android:layout_centerHorizontal="true"/>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_idade"
+        android:text="Idade: "
+        android:textStyle="bold"
+        android:textColor="#B4B3B5"
+        android:textSize="20dp"
+        android:fontFamily="casual"
+        android:layout_below="@+id/txt_perfil"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_idade_edit"
+        android:text="18 anos"
+        android:textColor="#B4B3B5"
+        android:textSize="20dp"
+        android:fontFamily="casual"
+        android:layout_toRightOf="@id/txt_idade"
+        android:layout_alignBaseline="@+id/txt_idade"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_email"
+        android:text="Email: "
+        android:textStyle="bold"
+        android:textColor="#B4B3B5"
+        android:textSize="20dp"
+        android:fontFamily="casual"
+        android:layout_below="@+id/txt_idade"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_email_edit"
+        android:text="willian.va7@gmail.com"
+        android:textColor="#40B2D1"
+        android:textSize="20dp"
+        android:fontFamily="casual"
+        android:layout_toRightOf="@id/txt_email"
+        android:layout_alignBaseline="@+id/txt_email"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_telefone"
+        android:text="Telefone: "
+        android:textStyle="bold"
+        android:textColor="#B4B3B5"
+        android:textSize="20dp"
+        android:fontFamily="casual"
+        android:layout_below="@+id/txt_email"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_telefone_edit"
+        android:text="31 97517-6833"
+        android:textColor="#40B2D1"
+        android:textSize="20dp"
+        android:fontFamily="casual"
+        android:layout_toRightOf="@id/txt_telefone"
+        android:layout_alignBaseline="@+id/txt_telefone"/>
+
+
+</RelativeLayout>
