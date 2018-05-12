@@ -3,17 +3,17 @@ package br.ufmg.coltec.tp.e04intents;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Bundle;
+import android.widget.ImageView;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.ImageView;
+import android.graphics.Bitmap;
 import android.widget.TextView;
+
 
 public class MainActivity extends Activity {
 
-    private final int FOTO_CODE = 1;
+    private final int FOTO = 1;
     private ImageView pic;
 
     @Override
@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent fotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(fotoIntent, FOTO_CODE);
+                startActivityForResult(fotoIntent, FOTO);
             }
         });
 
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-        
+
         phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,13 +51,12 @@ public class MainActivity extends Activity {
             }
         });
 
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == FOTO_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == FOTO && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             pic.setImageBitmap(photo);
         }
