@@ -19,7 +19,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         ImageView foto = findViewById(R.id.perfil_foto);
-        TextView TexTelefone = findViewById(R.id.perfil_fone);
+        TextView texTelefone = findViewById(R.id.perfil_fone);
+        TextView texEmail = findViewById(R.id.perfil_email);
 
         foto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -28,11 +29,20 @@ public class MainActivity extends Activity {
             }
         });
 
-        TexTelefone.setOnClickListener(new View.OnClickListener() {
+        texTelefone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri uri = Uri.parse("tel:31988700006");
                 Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                startActivity(intent);
+            }
+        });
+
+        texEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("mailto:reinaldomagas@gmail.com");
+                Intent intent = new Intent(Intent.ACTION_SENDTO, uri); // não funfa com ACTION_SEND
                 startActivity(intent);
             }
         });
