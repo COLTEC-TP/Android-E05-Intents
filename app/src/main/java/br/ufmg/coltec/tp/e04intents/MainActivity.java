@@ -3,10 +3,12 @@ package br.ufmg.coltec.tp.e04intents;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -17,6 +19,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         ImageView foto = findViewById(R.id.perfil_foto);
+        TextView TexTelefone = findViewById(R.id.perfil_fone);
 
         foto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -24,6 +27,16 @@ public class MainActivity extends Activity {
                 startActivityForResult(fotoIntent, FOTO_CODE);
             }
         });
+
+        TexTelefone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("tel:31988700006");
+                Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

@@ -37,11 +37,13 @@
         <TableRow android:padding="5dp">
             <TextView
                 android:text="reinaldomagas@gmail.com"
-                android:id="@+id/perfil_email"/>
+                android:id="@+id/perfil_email"
+                android:textColor="#0396d6" />
             <TextView
                 android:text="(31) 98870-0006"
                 android:layout_marginRight="10dp"
-                android:id="@+id/perfil_fone"/>
+                android:id="@+id/perfil_fone"
+                android:textColor="#0396d6"/>
 
         </TableRow>
 
