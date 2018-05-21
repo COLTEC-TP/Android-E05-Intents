@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
@@ -16,11 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends Activity {
 
     private final static int FOTO_CODE = 1;
-    private final static int EMAIL_CODE = 2;
-    private final static int PHONE_CODE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +29,11 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    public void textClicked(View view){
-        ViewSwitcher VS = (ViewSwitcher) view.getParent();
-        EditText TV = VS.findViewById(VS.getNextView().getId());
-        EditText ET = VS.findViewById(VS.getNextView().getId());
-        textClickedAction(VS, TV, ET);
-    }
-
-    public void textClickedAction(View view1, View view2, View view3) {
-        final ViewSwitcher switcher = (ViewSwitcher) view1;
-        final TextView TV = (TextView) view2;
-        final TextView ET = (EditText) view3;
-        switcher.showNext();
+    public void textClicked(View view) {
+        final ViewSwitcher VS = (ViewSwitcher) view.getParent();
+        final TextView TV = VS.findViewById(VS.getCurrentView().getId());
+        final EditText ET = VS.findViewById(VS.getNextView().getId());
+        VS.showNext();
         ET.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event)
             {
@@ -49,14 +43,14 @@ public class MainActivity extends Activity {
                     {
                         case KeyEvent.KEYCODE_DPAD_CENTER:
                         case KeyEvent.KEYCODE_ENTER:
-                            View view = switcher.getFocusedChild();
+                            View view = VS.getFocusedChild();
                             if (view != null) {
                                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                             }
                             String age = ET.getText().toString();
+                            VS.showPrevious();
                             TV.setText(age);
-                            switcher.showNext();
                             return true;
                         default:
                             break;
@@ -81,6 +75,32 @@ public class MainActivity extends Activity {
         if (requestCode == FOTO_CODE && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(photo);
+        }
+    }
+
+    public void telClicked(View view) {
+        TextView tel = (TextView) view;
+        Uri uri = Uri.parse("tel:"+tel.getText().toString());
+        Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+        startActivity(intent);
+    }
+
+    public  void emailClicked(View view) {
+        TextView email = (TextView) view;
+        String[] TO = {email.getText().toString()};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainActivity.this,
+                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }
 }

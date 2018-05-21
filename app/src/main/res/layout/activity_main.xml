@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
-            android:inputType="number"
+            android:inputType="textPersonName"
             android:textSize="27dp" />
     </ViewSwitcher>
 
@@ -63,5 +63,23 @@
             android:hint="Age"
             android:inputType="number" />
     </ViewSwitcher>
+
+    <TextView
+        android:id="@+id/tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_switcher2"
+        android:layout_centerHorizontal="true"
+        android:text="999999999999"
+        android:onClick="telClicked"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tel"
+        android:layout_centerHorizontal="true"
+        android:text="xxxxxxx@gmail.com"
+        android:onClick="emailClicked"/>
 
 </RelativeLayout>
