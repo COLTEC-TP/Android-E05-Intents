@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/perfil"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAlignment="center"
+        android:layout_marginTop="30sp"
+        android:src="@drawable/ic_launcher_background" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/perfil"
+        android:layout_marginTop="12sp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:text="Bryan Santos"/>
+
+    <TextView
+        android:id="@+id/idade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nome"
+        android:layout_marginTop="40sp"
+        android:padding="10dp"
+        android:textSize="15dp"
+        android:text="Idade: 16 anos"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idade"
+        android:padding="10dp"
+        android:textSize="15dp"
+        android:text="Email: bryans0701@gmail.com"/>
+
+    <TextView
+        android:id="@+id/telefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:padding="10dp"
+        android:textSize="15dp"
+        android:text="Telefone: (31) 98231-0492"/>
+
+</RelativeLayout>
