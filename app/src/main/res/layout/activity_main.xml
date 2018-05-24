@@ -49,4 +49,13 @@
 
     </TableLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Escanear um cod. barras"
+        android:layout_margin="10dp"
+        android:id="@+id/botao"/>
+
 </RelativeLayout>

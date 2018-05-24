@@ -51,6 +51,12 @@
             android:text="(31) 98870-0006"
             android:id="@+id/perfil_fone"
             android:textColor="#0396d6"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escanear um cod. barras"
+            android:layout_margin="10dp"
+            android:id="@+id/botao"/>
 
     </LinearLayout> </RelativeLayout>
 
