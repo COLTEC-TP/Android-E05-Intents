@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bernardo G. Nunes"
+        android:id="@+id/lbl_nome"
+        android:textSize="22dp"
+        android:layout_alignParentEnd="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17 anos"
+        android:textSize="18dp"
+        android:id="@+id/lbl_idade"
+        android:layout_below="@id/lbl_nome"
+        android:layout_alignStart="@id/lbl_nome"/>
+
+    <ImageButton
+        android:layout_width="160dp"
+        android:layout_height="200dp"
+        android:id="@+id/img_perfil"
+        android:src="@color/colorPrimary"
+        android:background="@color/colorPrimary"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nunesbernardo2000@gmail.com"
+        android:textSize="15dp"
+        android:id="@+id/lbl_email"
+        android:layout_below="@id/img_perfil"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(31) 997742457"
+        android:textSize="15dp"
+        android:id="@+id/lbl_telefone"
+        android:layout_below="@id/lbl_email"
+        android:layout_alignStart="@id/lbl_email"/>
+
+</RelativeLayout>
