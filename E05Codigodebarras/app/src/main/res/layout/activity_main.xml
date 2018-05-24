@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#2B2B2E">
+
+    <ImageButton
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:id="@+id/btn_barcode"
+        android:src="@drawable/barcode_icon_red"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_instrucao"
+        android:text="Clique para escanear"
+        android:textColor="#CBD1CE"
+        android:layout_below="@+id/btn_barcode"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_resultado"
+        android:text="O resultado aparecerá aqui"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_instrucao"
+        android:layout_marginTop="100dp"
+        android:fontFamily="casual"/>
+
+</RelativeLayout>
