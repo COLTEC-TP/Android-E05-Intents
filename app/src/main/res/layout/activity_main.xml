@@ -111,6 +111,24 @@
                 android:textAlignment="center"/>
         </TableRow>
 
+        <Button
+            android:id="@+id/botao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QR CODE"
+            android:textSize="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="40dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/botao"
+            android:text=""
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txt"/>
+
     </TableLayout>
 
 

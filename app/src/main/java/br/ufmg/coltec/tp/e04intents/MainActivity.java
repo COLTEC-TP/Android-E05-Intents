@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.provider.MediaStore;
 import android.view.View;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     private final int FOTO = 1;
+    private static int SCAN_CODE = 1;
+    private static final String TAG = "MyActivity";
+
     private ImageView pic;
 
     @Override
@@ -51,7 +55,19 @@ public class MainActivity extends Activity {
             }
         });
 
+        Button btn;
+        btn = findViewById(R.id.botao);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+                startActivityForResult(intent, SCAN_CODE);
+            }
+        });
     }
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -60,5 +76,12 @@ public class MainActivity extends Activity {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             pic.setImageBitmap(photo);
         }
+
+        if (requestCode == SCAN_CODE && resultCode == Activity.RESULT_OK) {
+            TextView txt = findViewById(R.id.txt);
+            txt.setText("Informação lida: " + data.getStringExtra("SCAN_RESULT"));
+        }
+
     }
+
 }
