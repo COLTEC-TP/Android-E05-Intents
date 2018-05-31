@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
 
     private static int FOTO_CODE = 1;   //Codigo da foto de perfil
     ImageButton imgButton;
+    private static final int CODIGODEBARRA_CODE = 2;    //codigo do codigo de barras! Que incrivel!!
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class MainActivity extends Activity {
 
         TextView email = findViewById(R.id.email);
         email.setPaintFlags(email.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);//Sublinhar o texto
+
+        Button botao = findViewById(R.id.botaoScanner);
 
         //Foto do perfil:
         imgButton =(ImageButton)findViewById(R.id.imageButton);
@@ -64,6 +67,14 @@ public class MainActivity extends Activity {
         });
 
 
+        //Botao codigo de barras
+        botao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+                startActivityForResult(intent, CODIGODEBARRA_CODE);
+            }
+        });
 
     }
 
@@ -76,6 +87,10 @@ public class MainActivity extends Activity {
         if (requestCode == FOTO_CODE && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(photo);
+        }
+        if (requestCode == CODIGODEBARRA_CODE && resultCode == Activity.RESULT_OK) {
+            TextView imprimirCodigoDeBarras = findViewById(R.id.textoCodigoBarraas);
+            imprimirCodigoDeBarras.setText(data.getStringExtra("SCAN_RESULT"));
         }
     }
 }

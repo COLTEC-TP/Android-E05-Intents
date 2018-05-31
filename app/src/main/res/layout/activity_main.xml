@@ -14,30 +14,30 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="17dp"
         android:text="Foto do Perfil"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
 
 
     <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:background="@null"
-        android:id="@+id/imageButton"
+        android:layout_below="@+id/fotoPerfil"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
         android:scaleType="fitXY"
-        android:src="@drawable/perfil"
-        />
+        android:src="@drawable/perfil" />
 
 
     <TextView
         android:id="@+id/nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/IconeNome"
         android:layout_alignEnd="@+id/fotoPerfil"
-        android:layout_centerVertical="true"
         android:text="Guilherme"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
@@ -80,7 +80,8 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignStart="@+id/imageButton"
-        android:layout_alignTop="@+id/nome"
+        android:layout_below="@+id/imageButton"
+        android:layout_marginTop="14dp"
         android:src="@drawable/nome" />
 
     <ImageView
@@ -106,5 +107,24 @@
         android:layout_alignBottom="@+id/Telefone"
         android:layout_alignStart="@+id/imageButton"
         android:src="@drawable/telefone" />
+
+    <Button
+        android:id="@+id/botaoScanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Telefone"
+        android:layout_centerHorizontal="true"
+        android:text="Escanear Codigo de Barras" />
+
+    <TextView
+        android:id="@+id/textoCodigoBarraas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/IconeTelefone"
+        android:layout_below="@+id/botaoScanner"
+        android:layout_marginTop="11dp"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
 
 </RelativeLayout>
