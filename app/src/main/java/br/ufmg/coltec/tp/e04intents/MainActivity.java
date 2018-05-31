@@ -22,11 +22,29 @@ import org.w3c.dom.Text;
 public class MainActivity extends Activity {
 
     private final static int FOTO_CODE = 1;
+    private final static int BARCODE_INTENT = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        ImageView imageView = findViewById(R.id.image);
+
+        if (requestCode == FOTO_CODE && resultCode == Activity.RESULT_OK) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(photo);
+        }
+
+        if (requestCode == BARCODE_INTENT && resultCode == Activity.RESULT_OK) {
+            String contents = data.getStringExtra("SCAN_RESULT");
+            String format = data.getStringExtra("SCAN_RESULT_FORMAT");
+
+            Toast.makeText(this, contents + "/" + format, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void textClicked(View view) {
@@ -66,18 +84,6 @@ public class MainActivity extends Activity {
         startActivityForResult(fotoIntent, FOTO_CODE);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        ImageView imageView = findViewById(R.id.image);
-
-        // verifica se retorno pertence a Intent chamada anterioremente,
-        // e se ela foi executada corretamente
-        if (requestCode == FOTO_CODE && resultCode == Activity.RESULT_OK) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(photo);
-        }
-    }
-
     public void telClicked(View view) {
         TextView tel = (TextView) view;
         Uri uri = Uri.parse("tel:"+tel.getText().toString());
@@ -85,7 +91,7 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    public  void emailClicked(View view) {
+    public void emailClicked(View view) {
         TextView email = (TextView) view;
         String[] TO = {email.getText().toString()};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -102,5 +108,10 @@ public class MainActivity extends Activity {
             Toast.makeText(MainActivity.this,
                     "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void scanBarcode(View view) {
+        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+        startActivityForResult(intent, BARCODE_INTENT);
     }
 }
