@@ -7,12 +7,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
     private final int FOTO_CODE = 1;
+    private final int CODIGO_CODE = 2;
     private ImageView pic;
 
     @Override
@@ -23,6 +26,7 @@ public class MainActivity extends Activity {
         pic = findViewById(R.id.picture);
         TextView email = findViewById(R.id.email);
         TextView phone = findViewById(R.id.phone);
+        Button cdb = findViewById(R.id.cdb);
 
         pic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +53,13 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+        cdb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+                startActivityForResult(intent, CODIGO_CODE);
+            }
+        });
     }
 
     @Override
@@ -57,6 +68,11 @@ public class MainActivity extends Activity {
         if (requestCode == FOTO_CODE && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             pic.setImageBitmap(photo);
+        }
+        if (requestCode == CODIGO_CODE && resultCode == Activity.RESULT_OK){
+            String contents = data.getStringExtra("SCAN_RESULT");
+
+            Toast.makeText(getBaseContext(), "Resultado do Scanner: "+contents, Toast.LENGTH_LONG).show();
         }
     }
 }

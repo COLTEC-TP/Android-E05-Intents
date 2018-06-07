@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_below="@id/picture"
         android:layout_height="wrap_content"
-        android:stretchColumns="1">
+        android:stretchColumns="1"
+        android:id="@+id/tableLayout">
 
         <TableRow>
             <TextView
@@ -97,6 +98,15 @@
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/cdb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:text="Código de Barra" />
 
 
 </RelativeLayout>
