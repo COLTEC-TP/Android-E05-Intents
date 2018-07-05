@@ -52,4 +52,12 @@
         android:textSize="15dp"
         android:text="Telefone: (31) 98231-0492"/>
 
+    <Button
+        android:id="@+id/btn_codigo"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/telefone"
+        android:layout_marginTop="50dp"
+        android:text="Leitura de código de barras"/>
+
 </RelativeLayout>
