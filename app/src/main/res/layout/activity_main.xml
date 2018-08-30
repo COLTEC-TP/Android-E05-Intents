@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,12 +7,129 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:text="Tela de Perfil"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:textSize="40dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/perfil" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/picture"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:stretchColumns="1">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/Nome"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Nome:"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delareti"
+                android:textSize="20dp"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/Idade"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Idade:"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19"
+                android:textSize="20dp"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/EmailText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dellaretiitalo@gmail.com"
+                android:textSize="20dp"
+                android:textColor="#0000ff"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/Telefone"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Telefone:"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(31) 993496369"
+                android:textSize="20dp"
+                android:textColor="#0000ff"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <Button
+            android:id="@+id/botao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QR CODE"
+            android:textSize="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="40dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/botao"
+            android:text=""
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txt"/>
+
+    </TableLayout>
+
+
+</RelativeLayout>
