@@ -24,9 +24,8 @@ public class MainActivity extends AppCompatActivity {
             switch (requestCode){
                 case 0:
                     String contents = data.getStringExtra("SCAN_RESULT");
-                    String format = data.getStringExtra("SCAN_RESULT_FORMAT");
                     TextView barcode = findViewById(R.id.txt_barcode);
-                    barcode.setText(contents);
+                    barcode.setText("Resultado: " + contents);// Gerei um código de barras e coloquei na câmera do emulador para escanear.
                     break;
                 case 1:
                 case 2:
@@ -54,8 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
         name.setText("Gill Bates");
         age.setText("35 anos");
-        email.setText("gillbates@macrosoft.com.br");
+        email.setText("gill.bates@macrosoft.com.br");
         phone.setText("4002-8922");
+
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Escolha:");
