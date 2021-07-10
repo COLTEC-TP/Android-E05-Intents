@@ -4,4 +4,6 @@
     <string name="string_Idade">Idade: </string>
     <string name="string_email">E-mail: </string>
     <string name="string_telefone">Telefone: </string>
+    <string name="string_barcode">Barcode Activity</string>
+    <string name="string_intent">Disparar Intent</string>
 </resources>
